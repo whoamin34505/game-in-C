@@ -35,7 +35,7 @@ void displayStats() {
 }
 
 void roomAction() {
-    printf("Вы в своей комнате, отдыхаете.\n");
+    printf("Вы в своей комнате, отдыхаете. *храп* \n");
     pthread_mutex_lock(&playerMutex);
     player.sleep = MAX_STAT;
     pthread_mutex_unlock(&playerMutex);
@@ -49,14 +49,14 @@ void kitchenAction() {
 }
 
 void toiletAction() {
-    printf("Вы в туалете. Чувствуете облегчение!\n");
+    printf("Вы в туалете, пук пук!\n");
     pthread_mutex_lock(&playerMutex);
     player.toilet = MAX_STAT;
     pthread_mutex_unlock(&playerMutex);
 }
 
 void streetAction() {
-    printf("Вы на улице, наслаждаетесь свежим воздухом.\n");
+    printf("Гуляй Вася\n");
 }
 
 void useInventory() {
@@ -72,7 +72,7 @@ void useInventory() {
         case 1:
             pthread_mutex_lock(&playerMutex);
             if (player.food > 0) {
-                printf("Использование бутерброда из инвентаря для утоления голода.\n");
+                printf("Ням ням\n");
                 player.hunger += 20;
                 if (player.hunger > MAX_STAT) player.hunger = MAX_STAT;
                 player.food--;
